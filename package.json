@@ -1,0 +1,16 @@
+{
+  "name": "view-as-markdown",
+  "description": "View any page as Markdown via right-click menu",
+  "private": true,
+  "scripts": {
+    "dev:firefox": "web-ext run -s src",
+    "dev:chrome": "web-ext run -s src --target=chromium",
+    "build": "pnpm build:firefox && pnpm build:chrome",
+    "lint": "web-ext lint -s src",
+    "build:firefox": "web-ext build -s src -a dist --overwrite-dest",
+    "build:chrome": "mkdir -p dist && cd src && zip -r ../dist/chrome-extension.zip . -x '*.DS_Store'"
+  },
+  "devDependencies": {
+    "web-ext": "^9.2.0"
+  }
+}
